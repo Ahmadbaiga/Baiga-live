@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoImg from "@assets/generated_images/WebWrite_company_logo_76cb5f75.png";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
@@ -15,11 +16,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                WebWrite
+            <div className="flex items-center gap-3">
+              <img src={logoImg} alt="WebWrite Logo" className="w-10 h-10" />
+              <div className="flex items-center gap-2">
+                <div className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                  WebWrite
+                </div>
+                <span className="text-sm text-muted-foreground">Inc.</span>
               </div>
-              <span className="text-sm text-muted-foreground">Inc.</span>
             </div>
             <p className="text-sm text-foreground/70 leading-relaxed">
               Transforming ideas into digital excellence. We create stunning web experiences that drive results.

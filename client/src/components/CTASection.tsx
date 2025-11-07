@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, ArrowRight } from "lucide-react";
+import QuoteFormDialog from "./QuoteFormDialog";
 
 export default function CTASection() {
+  const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
+
   return (
+    <>
     <section className="py-24 md:py-32 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10">
       <div className="max-w-5xl mx-auto px-4 md:px-6 text-center">
         <div className="space-y-8">
@@ -23,14 +28,12 @@ export default function CTASection() {
               size="lg" 
               variant="default" 
               className="text-lg px-8 py-6 min-h-12"
-              asChild
+              onClick={() => setQuoteDialogOpen(true)}
               data-testid="button-cta-quote"
             >
-              <a href="mailto:info@webwrite.co">
-                <Mail className="w-5 h-5 mr-2" />
-                Get a Free Quote
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </a>
+              <Mail className="w-5 h-5 mr-2" />
+              Get a Free Quote
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button 
               size="lg" 
@@ -53,6 +56,9 @@ export default function CTASection() {
           </div>
         </div>
       </div>
+
+      <QuoteFormDialog open={quoteDialogOpen} onOpenChange={setQuoteDialogOpen} />
     </section>
+    </>
   );
 }

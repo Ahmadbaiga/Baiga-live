@@ -1,18 +1,23 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import heroBackground from "@assets/generated_images/Dark_tech_hero_background_04523369.png";
+import QuoteFormDialog from "./QuoteFormDialog";
 
 export default function HeroSection() {
+  const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${heroBackground})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <div className="absolute inset-0 z-0">
+        <div
+          className="absolute inset-0 animate-slow-zoom"
+          style={{
+            backgroundImage: `url(${heroBackground})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background" />
       </div>
 
@@ -38,14 +43,12 @@ export default function HeroSection() {
               size="lg" 
               variant="default" 
               className="text-lg px-8 py-6 min-h-12"
-              asChild
+              onClick={() => setQuoteDialogOpen(true)}
               data-testid="button-hero-quote"
             >
-              <a href="mailto:info@webwrite.co">
-                <Mail className="w-5 h-5 mr-2" />
-                Get a Quote
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </a>
+              <Mail className="w-5 h-5 mr-2" />
+              Get a Quote
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button 
               size="lg" 
@@ -85,6 +88,8 @@ export default function HeroSection() {
           <div className="w-1.5 h-2 bg-foreground/40 rounded-full" />
         </div>
       </div>
+
+      <QuoteFormDialog open={quoteDialogOpen} onOpenChange={setQuoteDialogOpen} />
     </section>
   );
 }

@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail } from "lucide-react";
+import QuoteFormDialog from "./QuoteFormDialog";
 
 export default function Navigation() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     if (location !== "/") {
@@ -63,13 +65,18 @@ export default function Navigation() {
                 Call Us
               </a>
             </Button>
-            <Button variant="default" size="sm" asChild data-testid="button-quote">
-              <a href="mailto:info@webwrite.co">
-                <Mail className="w-4 h-4 mr-2" />
-                Get a Quote
-              </a>
+            <Button 
+              variant="default" 
+              size="sm" 
+              onClick={() => setQuoteDialogOpen(true)}
+              data-testid="button-quote"
+            >
+              <Mail className="w-4 h-4 mr-2" />
+              Get a Quote
             </Button>
           </div>
+
+          <QuoteFormDialog open={quoteDialogOpen} onOpenChange={setQuoteDialogOpen} />
 
           <Button
             variant="ghost"
@@ -106,11 +113,16 @@ export default function Navigation() {
                   Call Us
                 </a>
               </Button>
-              <Button variant="default" className="w-full justify-start" asChild>
-                <a href="mailto:info@webwrite.co">
-                  <Mail className="w-4 h-4 mr-2" />
-                  Get a Quote
-                </a>
+              <Button 
+                variant="default" 
+                className="w-full justify-start"
+                onClick={() => {
+                  setQuoteDialogOpen(true);
+                  setMobileMenuOpen(false);
+                }}
+              >
+                <Mail className="w-4 h-4 mr-2" />
+                Get a Quote
               </Button>
             </div>
           </div>
