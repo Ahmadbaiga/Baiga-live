@@ -16,6 +16,11 @@
     <link rel="stylesheet" crossorigin href="/Baiga-live/assets/index-Rd9NOmwi.css">
   </head>
   <body>
+    <script>
+      if (!location.hash) {
+        location.replace(location.pathname + "#/");
+      }
+    </script>    
     <div id="root"></div>
   </body>
 </html>
