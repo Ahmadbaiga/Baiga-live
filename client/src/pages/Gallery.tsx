@@ -4,16 +4,16 @@ import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
-import ecommerceImg from "@assets/generated_images/E-commerce_website_project_355a7a09.png";
-import restaurantImg from "@assets/generated_images/Restaurant_website_project_87bab071.png";
-import corporateImg from "@assets/generated_images/Corporate_website_project_e1263427.png";
-import mobileAppImg from "@assets/generated_images/Mobile_app_design_21a0a9a2.png";
-import realEstateImg from "@assets/generated_images/Real_estate_website_27696a85.png";
-import portfolioImg from "@assets/generated_images/Portfolio_website_design_3f792dad.png";
-import fashionImg from "@assets/generated_images/Fashion_website_design_b0f42f6c.png";
-import healthcareImg from "@assets/generated_images/Healthcare_website_project_df2ac2ec.png";
-import fitnessImg from "@assets/generated_images/Fitness_website_design_a49165d1.png";
-import heroBackground from "@assets/generated_images/Dark_tech_hero_background_04523369.png";
+import ecommerceImg from "/generated_images/E-commerce_website_project_355a7a09.png";
+import restaurantImg from "/generated_images/Restaurant_website_project_87bab071.png";
+import corporateImg from "/generated_images/Corporate_website_project_e1263427.png";
+import mobileAppImg from "/generated_images/Mobile_app_design_21a0a9a2.png";
+import realEstateImg from "/generated_images/Real_estate_website_27696a85.png";
+import portfolioImg from "/generated_images/Portfolio_website_design_3f792dad.png";
+import fashionImg from "/generated_images/Fashion_website_design_b0f42f6c.png";
+import healthcareImg from "/generated_images/Healthcare_website_project_df2ac2ec.png";
+import fitnessImg from "/generated_images/Fitness_website_design_a49165d1.png";
+import heroBackground from "/generated_images/Dark_tech_hero_background_04523369.png";
 
 const galleryImages = [
   { id: 1, src: ecommerceImg, category: "Web Design", title: "E-Commerce Platform" },

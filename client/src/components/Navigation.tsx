@@ -33,8 +33,13 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" data-testid="link-home">
             <div className="flex items-center gap-2 hover-elevate active-elevate-2 rounded-md px-3 py-2 -ml-3">
+            <img
+            src="/generated_images/baiga-logo.png"
+            alt="Baiga Logo"
+            className="h-10"
+/>
               <div className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                WebWrite
+                BAIGA
               </div>
               <span className="text-sm text-muted-foreground">Inc.</span>
             </div>

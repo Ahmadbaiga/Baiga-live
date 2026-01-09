@@ -1,12 +1,12 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
-import ecommerceImg from "@assets/generated_images/E-commerce_website_project_355a7a09.png";
-import restaurantImg from "@assets/generated_images/Restaurant_website_project_87bab071.png";
-import corporateImg from "@assets/generated_images/Corporate_website_project_e1263427.png";
-import mobileAppImg from "@assets/generated_images/Mobile_app_design_21a0a9a2.png";
-import realEstateImg from "@assets/generated_images/Real_estate_website_27696a85.png";
-import portfolioImg from "@assets/generated_images/Portfolio_website_design_3f792dad.png";
+import ecommerceImg from "/generated_images/E-commerce_website_project_355a7a09.png";
+import restaurantImg from "/generated_images/Restaurant_website_project_87bab071.png";
+import corporateImg from "/generated_images/Corporate_website_project_e1263427.png";
+import mobileAppImg from "/generated_images/Mobile_app_design_21a0a9a2.png";
+import realEstateImg from "/generated_images/Real_estate_website_27696a85.png";
+import portfolioImg from "/generated_images/Portfolio_website_design_3f792dad.png";
 
 const projects = [
   {

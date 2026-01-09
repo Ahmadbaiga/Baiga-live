@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoImg from "@assets/generated_images/WebWrite_company_logo_76cb5f75.png";
+import logoImg from "/generated_images/WebWrite_company_logo_76cb5f75.png";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
@@ -17,10 +17,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <img src={logoImg} alt="WebWrite Logo" className="w-10 h-10" />
+              <img src="/generated_images/baiga-logo.png" alt="WebWrite Logo" className="w-10 h-10" />
               <div className="flex items-center gap-2">
                 <div className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                  WebWrite
+                  BAIGA
                 </div>
                 <span className="text-sm text-muted-foreground">Inc.</span>
               </div>
@@ -97,13 +97,13 @@ export default function Footer() {
               <li className="flex items-start gap-3 text-sm text-foreground/70">
                 <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <a href="mailto:info@webwrite.co" className="hover:text-foreground transition-colors">
-                  info@webwrite.co
+                  info@joinbaiga.com
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm text-foreground/70">
                 <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <a href="tel:+923002671919" className="hover:text-foreground transition-colors">
-                  +92 300 2671919
+                  +92 324 4557376
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm text-foreground/70">
@@ -116,7 +116,7 @@ export default function Footer() {
 
         <div className="border-t border-card-border mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} WebWrite Inc. All rights reserved.
+            © {new Date().getFullYear()} Baiga. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors">

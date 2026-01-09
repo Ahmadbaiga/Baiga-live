@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { useEffect, useRef, useState } from "react";
 import { Lightbulb, Pencil, Code2, Rocket } from "lucide-react";
 
 const processSteps = [
@@ -6,67 +6,110 @@ const processSteps = [
     icon: Lightbulb,
     step: "01",
     title: "Discovery & Planning",
-    description: "We start by understanding your business goals, target audience, and project requirements through detailed consultations.",
+    description:
+      "We dive deep into your business goals, audience, and challenges to create a clear strategic roadmap.",
   },
   {
     icon: Pencil,
     step: "02",
     title: "Design & Prototype",
-    description: "Our designers create stunning mockups and interactive prototypes to visualize your project before development begins.",
+    description:
+      "We design intuitive, beautiful interfaces and interactive prototypes before a single line of code is written.",
   },
   {
     icon: Code2,
     step: "03",
     title: "Development & Testing",
-    description: "Expert developers bring designs to life with clean code, followed by rigorous testing to ensure quality and performance.",
+    description:
+      "Our engineers build scalable solutions with clean code, followed by thorough testing for performance and quality.",
   },
   {
     icon: Rocket,
     step: "04",
     title: "Launch & Support",
-    description: "We deploy your project and provide ongoing support, maintenance, and optimization to ensure continued success.",
+    description:
+      "We launch confidently and stay with you post-launch for optimization, scaling, and long-term success.",
   },
 ];
 
 export default function ProcessSection() {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="py-24 md:py-32 bg-background">
+    <section
+      ref={sectionRef}
+      className="py-24 md:py-32 bg-background"
+    >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight" data-testid="heading-process">
+        {/* Header */}
+        <div className="text-center space-y-4 mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             How We Work
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Our proven process ensures successful project delivery every time
+            A streamlined, transparent process designed for results
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {processSteps.map((step, index) => {
-            const Icon = step.icon;
-            return (
-              <Card 
-                key={index} 
-                className="relative overflow-visible hover-elevate active-elevate-2 transition-all duration-300"
-                data-testid={`card-process-${index}`}
-              >
-                <div className="absolute -top-4 left-6 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-sm">
-                  {step.step}
-                </div>
-                <CardContent className="p-8 pt-12 space-y-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-primary" />
+        {/* Timeline */}
+        <div className="relative">
+          {/* Horizontal Line */}
+          <div className="hidden lg:block absolute top-24 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {processSteps.map((step, index) => {
+              const Icon = step.icon;
+
+              return (
+                <div
+                  key={index}
+                  className={`reveal-step text-center ${
+                    visible ? "visible" : ""
+                  }`}
+                  style={{ transitionDelay: `${index * 0.25}s` }}
+                >
+                  {/* Icon Circle */}
+                  <div className="mx-auto mb-6 w-16 h-16 rounded-full bg-background border-2 border-primary flex items-center justify-center shadow-lg">
+                    <Icon className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold" data-testid={`text-process-title-${index}`}>
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-foreground/70 leading-relaxed">
-                    {step.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
+
+                  {/* Step Number */}
+                  <div className="mb-3 text-primary font-bold tracking-widest">
+                    {step.step}
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 rounded-2xl bg-card/60 backdrop-blur border border-border shadow-sm">
+                    <h3 className="text-xl font-semibold mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

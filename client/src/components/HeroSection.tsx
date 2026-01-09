@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail } from "lucide-react";
-import heroBackground from "@assets/generated_images/Dark_tech_hero_background_04523369.png";
+import heroBackground from "/generated_images/Dark_tech_hero_background_04523369.png";
 import QuoteFormDialog from "./QuoteFormDialog";
 
 export default function HeroSection() {
